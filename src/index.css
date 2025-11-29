@@ -13,7 +13,8 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 0 20px rgba(58, 210, 227, 0.4);
+  --shadow-glow: 0 0 20px rgba(255, 45, 85, 0.6);
+  /* Pink glow */
 }
 
 * {
@@ -34,17 +35,17 @@ body {
 @keyframes pulse {
   0% {
     transform: scale(1);
-    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
   }
 
-  50% {
+  70% {
     transform: scale(1.05);
-    opacity: 0.8;
+    box-shadow: 0 0 0 6px rgba(255, 59, 48, 0);
   }
 
   100% {
     transform: scale(1);
-    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0);
   }
 }
 
