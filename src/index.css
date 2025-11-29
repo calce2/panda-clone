@@ -1,12 +1,12 @@
 :root {
-  --bg-primary: #0f1014;
-  --bg-secondary: #1a1b20;
-  --bg-hover: #2a2b30;
-  --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
-  --accent-color: #3ad2e3; /* Panda TV-like blue/cyan */
+  --bg-primary: #f0f2f5;
+  --bg-secondary: #ffffff;
+  --bg-hover: #f8f9fa;
+  --text-primary: #1a1b1e;
+  --text-secondary: #666666;
+  --accent-color: #3ad2e3;
   --accent-hover: #2cb5c5;
-  --border-color: #2d2e33;
+  --border-color: #e1e4e8;
   --header-height: 64px;
   --sidebar-width: 240px;
   --card-radius: 12px;
