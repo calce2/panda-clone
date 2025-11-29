@@ -10,7 +10,10 @@
   --header-height: 64px;
   --sidebar-width: 240px;
   --card-radius: 12px;
-  --transition: all 0.2s ease;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 20px rgba(58, 210, 227, 0.4);
 }
 
 * {
@@ -27,6 +30,48 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -37,12 +82,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #ccc;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  background: #bbb;
 }
 
 /* Utilities */
@@ -50,6 +95,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #3ad2e3 0%, #2a75e8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .btn {
@@ -60,15 +119,19 @@ body {
   font-weight: 600;
   transition: var(--transition);
   font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary {
-  background-color: var(--accent-color);
-  color: #000;
+  background: linear-gradient(135deg, #3ad2e3 0%, #2a75e8 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(58, 210, 227, 0.3);
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(58, 210, 227, 0.4);
 }
 
 .btn-ghost {
@@ -89,6 +152,8 @@ body {
 }
 
 .badge-live {
-  background-color: #ff3b30;
+  background: linear-gradient(135deg, #ff3b30 0%, #ff2d55 100%);
   color: white;
+  animation: pulse 2s infinite ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 59, 48, 0.4);
 }

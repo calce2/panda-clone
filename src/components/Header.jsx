@@ -1,34 +1,33 @@
 import React from 'react';
 
 const Header = () => {
-  return (
-    <header className="header">
-      <div className="header-left">
-        <div className="logo">PANDA TV</div>
-        <nav className="nav-links">
-          <a href="#" className="active">Live</a>
-          <a href="#">VOD</a>
-          <a href="#">Ranking</a>
-        </nav>
-      </div>
+    return (
+        <header className="header glass">
+            <div className="header-left">
+                <div className="logo text-gradient">PANDA TV</div>
+                <nav className="nav-links">
+                    <a href="#" className="active">Live</a>
+                    <a href="#">VOD</a>
+                    <a href="#">Ranking</a>
+                </nav>
+            </div>
 
-      <div className="header-center">
-        <div className="search-bar">
-          <input type="text" placeholder="Search for BJ or content..." />
-          <button className="search-btn">🔍</button>
-        </div>
-      </div>
+            <div className="header-center">
+                <div className="search-bar">
+                    <input type="text" placeholder="Search for BJ or content..." />
+                    <button className="search-btn">🔍</button>
+                </div>
+            </div>
 
-      <div className="header-right">
-        <button className="btn btn-ghost">Login</button>
-        <button className="btn btn-primary">Sign Up</button>
-      </div>
+            <div className="header-right">
+                <button className="btn btn-ghost">Login</button>
+                <button className="btn btn-primary">Sign Up</button>
+            </div>
 
-      <style jsx>{`
+            <style jsx>{`
         .header {
           height: var(--header-height);
-          background-color: var(--bg-secondary);
-          border-bottom: 1px solid var(--border-color);
+          /* background-color removed to allow glass effect */
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -47,10 +46,10 @@ const Header = () => {
         }
 
         .logo {
-          font-size: 24px;
-          font-weight: 800;
-          color: var(--accent-color);
+          font-size: 26px;
+          font-weight: 900;
           letter-spacing: -1px;
+          cursor: pointer;
         }
 
         .nav-links {
@@ -64,10 +63,23 @@ const Header = () => {
           font-weight: 600;
           font-size: 16px;
           transition: var(--transition);
+          position: relative;
         }
 
         .nav-links a:hover, .nav-links a.active {
           color: var(--text-primary);
+        }
+        
+        .nav-links a.active::after {
+          content: '';
+          position: absolute;
+          bottom: -22px;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: var(--accent-color);
+          border-radius: 3px 3px 0 0;
+          box-shadow: 0 -2px 10px var(--accent-color);
         }
 
         .header-center {
@@ -80,13 +92,16 @@ const Header = () => {
           display: flex;
           background-color: var(--bg-primary);
           border-radius: 24px;
-          padding: 4px 4px 4px 20px;
-          border: 1px solid transparent;
+          padding: 6px 6px 6px 24px;
+          border: 2px solid transparent;
           transition: var(--transition);
+          box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .search-bar:focus-within {
           border-color: var(--accent-color);
+          background-color: var(--bg-secondary);
+          box-shadow: 0 0 0 4px rgba(58, 210, 227, 0.1);
         }
 
         .search-bar input {
@@ -104,6 +119,11 @@ const Header = () => {
           padding: 8px 16px;
           cursor: pointer;
           font-size: 16px;
+          transition: transform 0.2s;
+        }
+        
+        .search-btn:hover {
+          transform: scale(1.1);
         }
 
         .header-right {
@@ -111,8 +131,8 @@ const Header = () => {
           gap: 12px;
         }
       `}</style>
-    </header>
-  );
+        </header>
+    );
 };
 
 export default Header;
